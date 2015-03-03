@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-csp="">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Github Trending Projects</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+            alignment: center;
+        }
+
+        .row {
+            alignment: center;
+            text-align: center;
+            width: 400px;
+            margin-top: 20px;
+
+        }
+
+        .btn-primary {
+            margin-top: 5px;
+        }
+
+        .form-control {
+            margin-top: 5px;
+            width: 100px;
+        }
+
+        .input-group {
+            width: 250px;
+            margin-top: 5px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .dropdown-menu-right {
+            height: auto;
+            max-height: 400px;
+            overflow-x: hidden;
+        }
+
+        .dropdown-toggle {
+            margin-top: 5px;
+        }
+
+
+    </style>
+    <div><img src="images/fire.png" style="margin-left: 180px;margin-right: 60px;margin-top: 10px;">
+
+        <h1 style="margin-left: 60px">Github Trending</h1>
+
+    </div>
+</head>
+
+<body ng-controller="AngularJSCtrl">
+
+<div>
+
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input type="text" class="form-control" aria-label="..." ng-model="languagearea"
+                   ng-keyup="trendsByLang(languagearea)"
+                   placeholder="java, cpp, csharp...">
+
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">Languages <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li ng-repeat="language in languages"><a href="" ng-click="trendsByLang(language)">{{language}}</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- /btn-group -->
+        </div>
+
+        <hr style="height:1px;border-color: cornflowerblue">
+        <!-- /input-group -->
+        <!--<div class="input-group">-->
+            <!--<input type="email" class="form-control" placeholder="E-mail">-->
+      <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-primary" type="button">Subscribe!</button>-->
+      <!--</span>-->
+        <!--</div>-->
+        <!-- /.col-lg-6 -->
+
+
+    </div>
+    <div class="row">
+        <div ng-repeat="dat in data" style="margin-left: 20px;margin-right: 20px">
+            <a href="" ng-click="redirectUrl(dat.url)" style="font-size: large;font-family: Segoe UI;color: black">{{dat.title}}<br></a>
+            <div style="font-size: medium; font-family: Segoe UI">{{dat.description}}<br>
+                <div style="font-size: small;font-family: Segoe UI"> {{dat.language}}<br>
+                    <hr style="height:1px;border-color: cornflowerblue">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="lib/angular.min.js"></script>
+<script src="lib/jquery-2.1.3.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="popup.js"></script>
+</html>

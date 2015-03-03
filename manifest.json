@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Github Trending Projects",
+  "description": "This extension shows trending Github projects",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "images/trending.png",
+
+    "default_popup": "popup.html"
+  },
+  "author":"Oguzhan Demir",
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js",
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+  ],
+  "icons": {
+    "16": "images/fire-16.png",
+    "48": "images/fire-48.png",
+    "128": "images/fire-128.png"
+  }
+}
