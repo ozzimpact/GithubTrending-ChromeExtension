@@ -26,15 +26,16 @@ myApp.service('dataService', function ($http) {
     }
 });
 
-myApp.controller('AngularJSCtrl', function ($scope, dataService) {
+myApp.controller('AngularJSCtrl', function ($scope, dataService, $timeout) {
+
     $scope.data = null;
+    $scope.lang = null;
     dataService.getTrends().then(function (dataResponse) {
         $scope.data = dataResponse.data;
-        //console.log($scope.data);
+
     });
     dataService.getAllLanguages().then(function (dataResponse) {
         $scope.languages = dataResponse.data;
-        console.log($scope.languages);
     });
 
     $scope.redirectUrl = function (url) {
@@ -45,16 +46,33 @@ myApp.controller('AngularJSCtrl', function ($scope, dataService) {
 
     };
 
-    $scope.trendsByLang = function (lang) {
-        $scope.lang = lang.trim();
-        $scope.languagearea = lang;
-        dataService.getTrendsByLang($scope.lang).then(function (dataResponse) {
-            $scope.data = dataResponse.data;
-            //console.log($scope.data[1]);
-        })
+    $scope.dropDownAction = function (lang) {
+        $scope.languagearea= lang;
+        $scope.trendsByLang();
     };
+    var inputChangedPromise;
+    $scope.trendsByLang = function () {
 
+        if (inputChangedPromise) {
+            $timeout.cancel(inputChangedPromise);
+        }
+        inputChangedPromise = $timeout(function () {
+            $scope.loading = true;
+            $scope.data = "";
+            var temp = $scope.languagearea.replace(" ", "");
+            if (temp === "")
+                dataService.getTrends().then(function (dataResponse) {
+                    $scope.data = dataResponse.data;
+                    $scope.loading = false;
+                });
+            else {
+                dataService.getTrendsByLang(temp).then(function (dataResponse) {
+                    $scope.data = dataResponse.data;
+                    $scope.loading = false;
 
+                })
+            }
+        }, 1000);
 
-
+    };
 });

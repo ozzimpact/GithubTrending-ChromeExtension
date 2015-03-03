@@ -5,10 +5,63 @@
     <meta charset="UTF-8">
     <title>Github Trending Projects</title>
     <style>
+
         body {
             font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
             font-size: 100%;
             alignment: center;
+        }
+        .spinner {
+            margin: 100px auto;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spinner > div {
+            background-color: #333;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+
+            -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+            animation: stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+            20% { -webkit-transform: scaleY(1.0) }
+        }
+
+        @keyframes stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }  20% {
+                   transform: scaleY(1.0);
+                   -webkit-transform: scaleY(1.0);
+               }
         }
 
         .row {
@@ -17,10 +70,6 @@
             width: 400px;
             margin-top: 20px;
 
-        }
-
-        .btn-primary {
-            margin-top: 5px;
         }
 
         .form-control {
@@ -61,17 +110,15 @@
     <div class="col-lg-6">
         <div class="input-group">
             <input type="text" class="form-control" aria-label="..." ng-model="languagearea"
-                   ng-keyup="trendsByLang(languagearea)"
+                   ng-change="trendsByLang()"
                    placeholder="java, cpp, csharp...">
 
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">Languages <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li ng-repeat="language in languages"><a href="" ng-click="trendsByLang(language)">{{language}}</a>
+                    <li ng-repeat="language in languages"><a href="" ng-click="dropDownAction(language)">{{language}}</a>
                     </li>
-
-
                 </ul>
             </div>
             <!-- /btn-group -->
@@ -89,8 +136,17 @@
 
 
     </div>
-    <div class="row">
-        <div ng-repeat="dat in data" style="margin-left: 20px;margin-right: 20px">
+
+
+    <div class="row" >
+            <div ng-if="data == undefined || loading == true"class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        <div  ng-hide="loading" ng-repeat="dat in data" style="margin-left: 20px;margin-right: 20px">
             <a href="" ng-click="redirectUrl(dat.url)" style="font-size: large;font-family: Segoe UI;color: black">{{dat.title}}<br></a>
             <div style="font-size: medium; font-family: Segoe UI">{{dat.description}}<br>
                 <div style="font-size: small;font-family: Segoe UI"> {{dat.language}}<br>
