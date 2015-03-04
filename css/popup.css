@@ -1,3 +1,4 @@
+
 body {
     font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
     font-size: 100%;
@@ -68,18 +69,19 @@ body {
     width: 400px;
     margin-top: 20px;
 
+
 }
 
 .form-control {
     margin-top: 5px;
-    width: 100px;
+    width: 200px;
 }
 
 .input-group {
     width: 250px;
     margin-top: 5px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .dropdown-menu-right {
@@ -97,8 +99,8 @@ body {
 }
 
 .icon {
-    margin-left: 180px;
-    margin-right: 60px;
+    margin-left: 170px;
+
     margin-top: 10px
 
 }

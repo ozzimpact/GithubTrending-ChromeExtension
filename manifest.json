@@ -1,14 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Github Trending Projects",
-
-  "description": "This extension shows trending Github projects",
-  "version": "1.1",
-
-
+  "name": "Github Trending",
+  "version": "1.2",
   "description": "__MSG_appDesc__",
-  "version": "1.0",
   "default_locale": "en",
   "browser_action": {
     "default_icon": "images/trending.png",
@@ -21,11 +16,13 @@
     "activeTab",
     "tabs",
     "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js",
-    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js",
+    "http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"
   ],
   "icons": {
     "16": "images/fire-16.png",
     "48": "images/fire-48.png",
     "128": "images/fire-128.png"
-  }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
