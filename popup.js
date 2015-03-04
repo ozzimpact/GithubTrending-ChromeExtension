@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.service('dataService', function ($http) {
+myApp.service('trendingService', function ($http) {
     var baseUrl = 'https://githubtrendingbe-ozi3.c9.io/';
     var langExt = 'languages/';
     this.getTrends = function () {
@@ -26,15 +26,15 @@ myApp.service('dataService', function ($http) {
     }
 });
 
-myApp.controller('AngularJSCtrl', function ($scope, dataService, $timeout) {
+myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
 
     $scope.data = null;
     $scope.lang = null;
-    dataService.getTrends().then(function (dataResponse) {
+    trendingService.getTrends().then(function (dataResponse) {
         $scope.data = dataResponse.data;
 
     });
-    dataService.getAllLanguages().then(function (dataResponse) {
+    trendingService.getAllLanguages().then(function (dataResponse) {
         $scope.languages = dataResponse.data;
     });
 
@@ -61,12 +61,12 @@ myApp.controller('AngularJSCtrl', function ($scope, dataService, $timeout) {
             $scope.data = "";
             var temp = $scope.languagearea.replace(" ", "");
             if (temp === "")
-                dataService.getTrends().then(function (dataResponse) {
+                trendingService.getTrends().then(function (dataResponse) {
                     $scope.data = dataResponse.data;
                     $scope.loading = false;
                 });
             else {
-                dataService.getTrendsByLang(temp).then(function (dataResponse) {
+                trendingService.getTrendsByLang(temp).then(function (dataResponse) {
                     $scope.data = dataResponse.data;
                     $scope.loading = false;
 
