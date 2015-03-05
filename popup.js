@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['autocomplete']);
 
 myApp.service('trendingService', function ($http) {
     var baseUrl = 'https://githubtrendingbe-ozi3.c9.io/';

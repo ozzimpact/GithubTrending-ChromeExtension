@@ -5,61 +5,48 @@
     <meta charset="UTF-8">
     <title>Github Trending Projects</title>
     <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/autocomplete.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
 
 <body ng-controller="trendingctrl">
-<div class="header">
-    <img class="icon" src="images/fire.png">
+<div class="container">
+        <img class="icon" src="images/fire-64.png">
+        <h1 class="trending-title">Github Trending</h1>
+    <div>
 
-    <h1 class="trending-title">Github Trending</h1>
-</div>
-<div>
+        <div class="col-lg-6">
+                <autocomplete ng-model="languagearea" attr-placeholder="java, cpp, csharp, objective-c, javascript..." data="languages"
+                              on-select="trendsByLang"></autocomplete>
+            <!-- /input-group -->
+            <!--<div class="input-group">-->
+            <!--<input type="email" class="form-control" placeholder="E-mail">-->
+            <!--<span class="input-group-btn">-->
+            <!--<button class="btn btn-primary" type="button">Subscribe!</button>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!-- /.col-lg-6 -->
+        </div>
 
-    <div class="col-lg-6">
-        <div class="input-group">
-            <input type="text" class="form-control" aria-label="..." ng-model="languagearea"
-                   ng-change="trendsByLang()"
-                   placeholder="java, cpp, csharp...">
 
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                        aria-expanded="false">Languages <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li ng-repeat="language in languages"><a href=""
-                                                             ng-click="dropDownAction(language)">{{language}}</a>
-                    </li>
-                </ul>
+        <div class="row">
+            <div ng-if="data == undefined || loading == true" class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
             </div>
-        </div>
-        <hr class="separated">
-        <!-- /input-group -->
-        <!--<div class="input-group">-->
-        <!--<input type="email" class="form-control" placeholder="E-mail">-->
-        <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-primary" type="button">Subscribe!</button>-->
-        <!--</span>-->
-        <!--</div>-->
-        <!-- /.col-lg-6 -->
-    </div>
 
+            <div class="data" ng-hide="loading" ng-repeat="dat in data">
+                <hr class="border-hr">
+                <a href="" class="redirect-url" ng-click="redirectUrl(dat.url)">{{dat.title}}<br></a>
+                <div class="description">{{dat.description}}<br>
+                    <div class="langauge"> {{dat.language}}<br>
 
-    <div class="row">
-        <div ng-if="data == undefined || loading == true" class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
-        <div class="data" ng-hide="loading" ng-repeat="dat in data">
-            <a href="" class="redirect-url" ng-click="redirectUrl(dat.url)">{{dat.title}}<br></a>
-
-            <div class="description">{{dat.description}}<br>
-
-                <div class="langauge"> {{dat.language}}<br>
-                    <hr class="border-hr">
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,6 +56,7 @@
 <script src="lib/angular.min.js"></script>
 <script src="lib/jquery-2.1.3.min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
+<script src="lib/autocomplete.js"></script>
 <script src="popup.js"></script>
 </html>
 

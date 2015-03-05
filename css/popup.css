@@ -65,7 +65,7 @@ body {
 .row {
     alignment: center;
     text-align: center;
-    width: 400px;
+    width: auto;
     margin-top: 20px;
 
 }
@@ -82,24 +82,20 @@ body {
     margin-right: 50px;
 }
 
-.dropdown-menu-right {
-    height: auto;
-    max-height: 400px;
-    overflow-x: hidden;
-}
-
-.dropdown-toggle {
-    margin-top: 5px;
-}
-
 .trending-title {
-    margin-left: 60px
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.container{
+    width: 450px;
+    height: 600px;
+    overflow-y:scroll;
+}
 .icon {
-    margin-left: 180px;
-    margin-right: 60px;
-    margin-top: 10px
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
 
 }
 
@@ -110,6 +106,8 @@ body {
 }
 
 .border-hr {
+    margin-left: 1px;
+    margin-right: auto;
     height: 1px;
     border-color: cornflowerblue;
 }
@@ -120,8 +118,8 @@ body {
 }
 
 .data {
-    margin-left: 20px;
-    margin-right: 20px
+    margin-left: auto;
+    margin-right: auto
 }
 
 .redirect-url {
@@ -133,4 +131,9 @@ body {
 .separated {
     height: 1px;
     border-color: cornflowerblue
+}
+.col-lg-6{
+    margin-left: auto;
+    margin-right: auto;
+
 }
