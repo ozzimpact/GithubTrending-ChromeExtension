@@ -112,6 +112,8 @@ body {
 }
 
 .border-hr {
+    margin-left: 1px;
+    margin-right: auto;
     height: 1px;
     border-color: cornflowerblue;
 }
@@ -135,4 +137,9 @@ body {
 .separated {
     height: 1px;
     border-color: cornflowerblue
+}
+.col-lg-6{
+    margin-left: auto;
+    margin-right: auto;
+
 }

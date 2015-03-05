@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 var myApp = angular.module('myApp', ["kendo.directives"]);
+=======
+var myApp = angular.module('myApp', ['autocomplete']);
+>>>>>>> 53dfe1f8f9a9551cda2e817b54a51d6b480468c7
 
 myApp.service('trendingService', function ($http) {
     var baseUrl = 'https://githubtrendingbe-ozi3.c9.io/';

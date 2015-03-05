@@ -1,17 +1,21 @@
 {
   "manifest_version": 2,
+<<<<<<< HEAD
 
   "name": "Github Trending",
   "version": "1.2",
+=======
+  "name": "Github Trending",
+  "description": "This extension shows trending Github projects",
+  "version": "1.4",
+>>>>>>> 53dfe1f8f9a9551cda2e817b54a51d6b480468c7
   "description": "__MSG_appDesc__",
   "default_locale": "en",
   "browser_action": {
     "default_icon": "images/trending.png",
-
     "default_popup": "popup.html"
   },
-  "author":"Oguzhan Demir",
-
+  "author": "Oguzhan Demir",
   "permissions": [
     "activeTab",
     "tabs",
