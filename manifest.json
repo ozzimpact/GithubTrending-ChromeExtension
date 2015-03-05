@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Github Trending Projects",
+  "name": "Github Trending",
   "description": "This extension shows trending Github projects",
-  "version": "1.3",
+  "version": "1.4",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
   "browser_action": {
