@@ -9,58 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css" />
 </head>
 
 <body ng-controller="trendingctrl">
-<<<<<<< HEAD
-<div class="header">
-    <img class="icon" src="images/fire.png">
-
-    <h1 class="trending-title">Github Trending</h1>
-</div>
-<div>
-
-    <div class="col-lg-6">
-        <div class="input-group">
-                <h4>Select Language</h4>
-                <input class="form-control" kendo-auto-complete  k-options="selectOptions" ng-model="languagearea" k-on-change="trendsByLang()" k-data-source="languages"  style="width: 200px;margin-bottom: 40px"/>
-            <div class="input-group-btn">
-                <button style="margin-top: 5px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                        aria-expanded="false">Languages <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li ng-repeat="language in languages"><a href=""
-                                                             ng-click="dropDownAction(language)">{{language}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- /input-group -->
-        <!--<div class="input-group">-->
-        <!--<input type="email" class="form-control" placeholder="E-mail">-->
-        <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-primary" type="button">Subscribe!</button>-->
-        <!--</span>-->
-        <!--</div>-->
-        <!-- /.col-lg-6 -->
-    </div>
-
-    <div class="row">
-        <div ng-if="data == undefined || loading == true" class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
-        <div class="data" ng-hide="loading" ng-repeat="dat in data">
-            <hr class="border-hr">
-            <a href="" class="redirect-url" ng-click="redirectUrl(dat.url)">{{dat.title}}<br></a>
-=======
 <div class="container">
         <img class="icon" src="images/fire-64.png">
         <h1 class="trending-title">Github Trending</h1>
@@ -88,7 +39,6 @@
                 <div class="rect4"></div>
                 <div class="rect5"></div>
             </div>
->>>>>>> 53dfe1f8f9a9551cda2e817b54a51d6b480468c7
 
             <div class="data" ng-hide="loading" ng-repeat="dat in data">
                 <hr class="border-hr">
@@ -96,26 +46,17 @@
                 <div class="description">{{dat.description}}<br>
                     <div class="langauge"> {{dat.language}}<br>
 
-<<<<<<< HEAD
-                <div class="langauge"> {{dat.language}}<br>
-
-=======
                     </div>
->>>>>>> 53dfe1f8f9a9551cda2e817b54a51d6b480468c7
                 </div>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script src="lib/angular.min.js"></script>
 <script src="lib/jquery-2.1.3.min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
-<<<<<<< HEAD
-<script src="lib/angular.min.js"></script>
-<script src="lib/kendo.all.min.js"></script>
-=======
 <script src="lib/autocomplete.js"></script>
->>>>>>> 53dfe1f8f9a9551cda2e817b54a51d6b480468c7
 <script src="popup.js"></script>
 </html>
 
