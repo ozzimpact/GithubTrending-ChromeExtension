@@ -8,6 +8,6 @@ Makes it easier to be informed about Github Trending projects.
 ![Alt text](/images/1280-homepage.png)
 
 #Contributors
-[previousdeveloper](https://github.com/previousdeveloper)
+* [previousdeveloper](https://github.com/previousdeveloper)
 
-[volkanakinpasa](https://github.com/volkanakinpasa)
+* [volkanakinpasa](https://github.com/volkanakinpasa)
