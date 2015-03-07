@@ -14,6 +14,6 @@ Makes it easier to be informed about Github Trending projects.
 
 * [ersentekin](https://github.com/ersentekin)
 
-#Licence
+#License
 
 This repo is available according to the MIT License (see [LICENSE](/LICENSE)).
