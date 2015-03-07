@@ -13,3 +13,7 @@ Makes it easier to be informed about Github Trending projects.
 * [volkanakinpasa](https://github.com/volkanakinpasa)
 
 * [ersentekin](https://github.com/ersentekin)
+
+#Licence
+
+This repo is available according to the MIT License (see [LICENSE](/LICENSE)).
