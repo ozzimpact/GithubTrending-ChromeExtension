@@ -11,3 +11,5 @@ Makes it easier to be informed about Github Trending projects.
 * [previousdeveloper](https://github.com/previousdeveloper)
 
 * [volkanakinpasa](https://github.com/volkanakinpasa)
+
+* [ersentekin](https://github.com/ersentekin)
