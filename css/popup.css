@@ -85,6 +85,7 @@ body {
 .trending-title {
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .container{
@@ -100,9 +101,15 @@ body {
 }
 
 .language {
-    font-size: small;
+    font-size: 15px;
     font-family: Segoe UI;
+    font-style: inherit;
+    color: #666;
 
+}
+.star{
+    color: #888;
+    font-size: 14px;
 }
 
 .border-hr {
@@ -113,8 +120,10 @@ body {
 }
 
 .description {
-    font-size: medium;
-    font-family: Segoe UI
+    font-size: 15px;
+    font-family: Segoe UI;
+    font-style: inherit;
+    color: #666;
 }
 
 .data {
@@ -123,9 +132,9 @@ body {
 }
 
 .redirect-url {
-    font-size: large;
+    font-size: 21px;
     font-family: Segoe UI;
-    color: black
+    color: #4183c4;
 }
 
 .separated {
@@ -135,5 +144,6 @@ body {
 .col-lg-6{
     margin-left: auto;
     margin-right: auto;
+
 
 }
