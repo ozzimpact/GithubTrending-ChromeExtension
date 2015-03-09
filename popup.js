@@ -1,41 +1,51 @@
+'use strict';
+
 var myApp = angular.module('myApp', ['autocomplete']);
 
 myApp.service('trendingService', function ($http) {
-    var baseUrl = 'https://githubtrendingbe-ozi3.c9.io/';
-    var langExt = 'languages/';
+    var serviceParams = {
+        baseUrl: 'https://githubtrendingbe-ozi3.c9.io/',
+        langExt: 'languages/'
+    };
+
     this.getTrends = function () {
 
         return $http({
             method: 'GET',
-            url: baseUrl
+            url: serviceParams.baseUrl
         });
     };
     this.getTrendsByLang = function (lang) {
 
         return $http({
             method: 'GET',
-            url: baseUrl + langExt + lang
+            url: serviceParams.baseUrl + serviceParams.langExt + lang
         });
     };
     this.getAllLanguages = function () {
 
         return $http({
             method: 'GET',
-            url: baseUrl + langExt
+            url: serviceParams.baseUrl + serviceParams.langExt
         });
-    }
+    };
 });
 
 myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
 
-    $scope.data = null;
-    $scope.lang = null;
+    $scope.vm = {
+        data: null,
+        languages: null,
+        languagearea: null,
+        loading: null
+    };
+
     trendingService.getTrends().then(function (dataResponse) {
-        $scope.data = dataResponse.data;
+        $scope.vm.data = dataResponse.data;
 
     });
     trendingService.getAllLanguages().then(function (dataResponse) {
-        $scope.languages = dataResponse.data;
+        $scope.vm.languages = dataResponse.data;
     });
 
     $scope.redirectUrl = function (url) {
@@ -43,32 +53,29 @@ myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
             var newURL = url;
             chrome.tabs.create({url: newURL});
         }, 100);
-
     };
-
     $scope.dropDownAction = function (lang) {
-        $scope.languagearea= lang;
+        $scope.vm.languagearea = lang;
         $scope.trendsByLang();
     };
     var inputChangedPromise;
     $scope.trendsByLang = function () {
-
         if (inputChangedPromise) {
             $timeout.cancel(inputChangedPromise);
         }
         inputChangedPromise = $timeout(function () {
-            $scope.loading = true;
-            $scope.data = "";
-            var temp = $scope.languagearea.replace(" ", "");
+            $scope.vm.loading = true;
+            $scope.vm.data = "";
+            var temp = $scope.vm.languagearea.replace(" ", "");
             if (temp === "")
                 trendingService.getTrends().then(function (dataResponse) {
-                    $scope.data = dataResponse.data;
-                    $scope.loading = false;
+                    $scope.vm.data = dataResponse.data;
+                    $scope.vm.loading = false;
                 });
             else {
                 trendingService.getTrendsByLang(temp).then(function (dataResponse) {
-                    $scope.data = dataResponse.data;
-                    $scope.loading = false;
+                    $scope.vm.data = dataResponse.data;
+                    $scope.vm.loading = false;
 
                 })
             }

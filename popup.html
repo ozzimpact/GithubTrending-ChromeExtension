@@ -18,34 +18,22 @@
     <div>
 
         <div class="col-lg-6">
-                <autocomplete ng-model="languagearea" attr-placeholder="java, cpp, csharp, objective-c, javascript..." data="languages"
+                <autocomplete ng-model="vm.languagearea" attr-placeholder="java, cpp, csharp, objective-c, javascript..." data="vm.languages"
                               on-select="trendsByLang"></autocomplete>
-            <!-- /input-group -->
-            <!--<div class="input-group">-->
-            <!--<input type="email" class="form-control" placeholder="E-mail">-->
-            <!--<span class="input-group-btn">-->
-            <!--<button class="btn btn-primary" type="button">Subscribe!</button>-->
-            <!--</span>-->
-            <!--</div>-->
-            <!-- /.col-lg-6 -->
         </div>
-
-
         <div class="row">
-            <div ng-if="data == undefined || loading == true" class="spinner">
+            <div ng-if="vm.data == undefined || vm.loading == true" class="spinner">
                 <div class="rect1"></div>
                 <div class="rect2"></div>
                 <div class="rect3"></div>
                 <div class="rect4"></div>
                 <div class="rect5"></div>
             </div>
-
-            <div class="data" ng-hide="loading" ng-repeat="dat in data">
+            <div class="data" ng-hide="vm.loading" ng-repeat="info in vm.data">
                 <hr class="border-hr">
-                <a href="" class="redirect-url" ng-click="redirectUrl(dat.url)">{{dat.title}}<br></a>
-                <div class="description">{{dat.description}}<br>
-                    <div class="langauge"> {{dat.language}}<br>
-
+                <a href="" class="redirect-url" ng-click="redirectUrl(info.url)">{{info.title}}<br></a>
+                <div class="description">{{info.description}}<br>
+                    <div class="vm.langauge"> {{info.language}}<br>
                     </div>
                 </div>
             </div>
