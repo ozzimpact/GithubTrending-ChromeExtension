@@ -43,6 +43,27 @@ myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
         loading: null
     };
 
+    var storage = chrome.storage.local;
+
+    $scope.saveChanges = function () {
+        var storedLang = $scope.vm.languagearea;
+        // Check that there's some code there.
+        if (!storedLang) {
+            return;
+        }
+
+        storage.set({'language': storedLang}, function () {
+        });
+    };
+
+
+    storage.get('language', function (items) {
+        if (items.language) {
+            $scope.vm.languagearea = items.language;
+            $scope.trendsByLang();
+        }
+    });
+
     trendingService.getTrends().then(function (dataResponse) {
         $scope.vm.data = dataResponse.data;
 
@@ -78,6 +99,7 @@ myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
 
                 })
             }
+            $scope.saveChanges();
         }, 1000);
 
     };

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Github Trending",
   "description": "This extension shows trending Github projects",
-  "version": "1.7",
+  "version": "1.8",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
   "browser_action": {
@@ -13,8 +13,7 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js",
-    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+    "storage"
   ],
   "icons": {
     "16": "images/fire-16.png",
