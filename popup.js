@@ -2,33 +2,36 @@
 
 var myApp = angular.module('myApp', ['autocomplete']);
 
-myApp.service('trendingService', function ($http) {
+myApp.factory('trendingService', function ($http) {
     var serviceParams = {
         baseUrl: 'https://githubtrendingbe-ozi3.c9.io/',
         langExt: 'languages/'
     };
 
-    this.getTrends = function () {
+    var service = {};
+
+    service.getTrends = function () {
 
         return $http({
             method: 'GET',
             url: serviceParams.baseUrl
         });
     };
-    this.getTrendsByLang = function (lang) {
+    service.getTrendsByLang = function (lang) {
 
         return $http({
             method: 'GET',
             url: serviceParams.baseUrl + serviceParams.langExt + lang
         });
     };
-    this.getAllLanguages = function () {
+    service.getAllLanguages = function () {
 
         return $http({
             method: 'GET',
             url: serviceParams.baseUrl + serviceParams.langExt
         });
     };
+    return service;
 });
 
 myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
@@ -53,10 +56,6 @@ myApp.controller('trendingctrl', function ($scope, trendingService, $timeout) {
             var newURL = url;
             chrome.tabs.create({url: newURL});
         }, 100);
-    };
-    $scope.dropDownAction = function (lang) {
-        $scope.vm.languagearea = lang;
-        $scope.trendsByLang();
     };
     var inputChangedPromise;
     $scope.trendsByLang = function () {
