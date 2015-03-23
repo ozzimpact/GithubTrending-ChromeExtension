@@ -11,6 +11,15 @@ Makes it easier to be informed about Github Trending projects.
 **2.0**
 * Chrome local storage is added. It keeps the last searched language.
 
+**1.6**
+* Autocomplete is now available.
+
+**1.5**
+* Project star detail is now available.
+
+**1.1**
+* Localization(Turkish, English) is added.
+
 #Contributors
 * [previousdeveloper](https://github.com/previousdeveloper)
 
