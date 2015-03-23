@@ -7,6 +7,10 @@ Makes it easier to be informed about Github Trending projects.
 
 ![Alt text](/images/general.png)
 
+#Release Notes
+**2.0**
+* Chrome local storage is added. It keeps the last searched language.
+
 #Contributors
 * [previousdeveloper](https://github.com/previousdeveloper)
 
