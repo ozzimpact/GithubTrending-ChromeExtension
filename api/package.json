@@ -1,0 +1,9 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "cors": "^2.5.3",
+    "express": "^4.12.0",
+    "github-trending": "^1.2.0",
+  }
+}
