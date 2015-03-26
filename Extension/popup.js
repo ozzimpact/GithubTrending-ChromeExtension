@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['autocomplete']);
 
 myApp.factory('trendingService', function ($http) {
     var serviceParams = {
-        baseUrl: 'http://188.226.162.237:8080/',
+        baseUrl: 'YOUR-API-URL',
         langExt: 'languages/'
     };
 
